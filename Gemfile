@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '=2.3.1'
+ruby '2.3.1'
 # ruby 2.3.1p112 (2016-04-26) [i386-linux-gnu]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
