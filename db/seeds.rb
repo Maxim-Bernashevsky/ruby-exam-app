@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 Image.delete_all
 Image.reset_pk_sequence
 Image.create([
@@ -22,8 +15,11 @@ Image.create([
 {name: 'River bends', file: 'river_bends.jpg', theme_id: 1},
 {name: 'Beach', file: 'Beach.jpg', theme_id: 2},
 {name: 'Rose', file: 'rose.jpg', theme_id: 4},
-{name: 'Abstract', file: 'abstract.jpg', theme_id: 2},
-             ])
+{name: 'Abstract', file: 'abstract.jpg', theme_id: 2}
+])
+
+Value.delete_all
+Value.reset_pk_sequence
 
 Theme.delete_all
 Theme.reset_pk_sequence
@@ -32,7 +28,7 @@ Theme.create([
                  {name: 'City'},
                  {name: 'Foods'},
                  {name: 'Other'}
-             ])
+])
 
 
 User.delete_all
@@ -40,6 +36,6 @@ User.reset_pk_sequence
 User.create([
                  {name: '1', email: 'mail@gmail.com'},
                  {name: 'Maxim', email: '123@mail.ru', password: '123123'}
-             ])
+])
 
 
