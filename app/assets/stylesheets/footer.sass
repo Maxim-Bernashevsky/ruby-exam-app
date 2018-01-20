@@ -1,0 +1,25 @@
+@import "common/index"
+
+footer
+  position: fixed
+  width: 100%
+  bottom: 0
+  z-index: 20
+  padding: 20px 0 5px
+  background-color: $black
+  box-shadow: 0 0 14px 5px $black
+  .nav
+    float: right
+    li
+      a
+        @include transition-on(.145s)
+        color: $gray-normal
+        cursor: default
+        &:hover,
+        &:focus
+          background-color: $black
+          color: $white
+  .copyright
+    color: $gray-normal
+    display: inline-block
+    padding: 15px

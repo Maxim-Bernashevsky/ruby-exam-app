@@ -1,0 +1,21 @@
+@import "../common/index"
+
+.pagination
+  .current
+    color: $white
+    cursor: default
+  span
+    padding: 2px 1px
+    @include transition-on(.145s)
+    border: 3px solid transparent
+    &:not(.current):hover
+      // border-bottom: 2px solid $black-light
+      cursor: pointer
+    &:hover a
+      color: $second
+    a
+      color: $gray-normal
+      &:active
+        color: $second
+        text-decoration: none
+

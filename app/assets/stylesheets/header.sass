@@ -1,0 +1,64 @@
+@import "common/index"
+
+.navbar
+  padding: 16px 0
+  border: none
+  background-color: $black
+  border-radius: 0
+  margin-bottom: 0
+
+  .rails_logo
+    display: inline
+    height: 40px
+    position: relative
+    bottom: 0
+    left: 10px
+    @include transition-on(.310s)
+    &:hover
+      filter: drop-shadow(0 0 1px lighten($second, 70)) drop-shadow(1px 0 10px lighten($second, 70))
+
+  .navbar-nav
+
+    li > a
+      cursor: default
+      color: $gray-normal
+      font-size: $fz-regular
+      @include transition-on(.145s)
+      &:hover,
+      &:focus
+        color: $white
+    .dropdown
+      a.dropdown-toggle
+        cursor: pointer
+    .open > a,
+    .open > a:hover,
+    .open > a:focus
+      background-color: $black-normal
+      color: $white
+
+  .gravatar
+    width: 20px
+    height: 20px
+    border-radius: 1px
+
+  .dropdown
+    p
+      font-size: $fz-regular
+      margin: 0
+
+    .dropdown-menu
+      background-color: $black
+      min-width: 143px
+      font-size: $fz-regular
+      box-shadow: 0 6px 12px $black
+
+      .divider
+        background-color: rgba(255, 255, 255, 0.045)
+
+      li > a
+        color: $gray-normal
+        &:hover,
+        &:focus
+          color: $white
+          background-color: $black-normal
+

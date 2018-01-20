@@ -1,0 +1,21 @@
+@import "common/index"
+
+.h
+  &+ img
+    @include transition-on(.145s)
+    position: relative
+    z-index: -1
+    bottom: 12px
+    right: 75px
+    width: 22px
+    opacity: 0
+  &:hover +img
+    animation: beat 4s ease-in-out infinite alternate
+
+@keyframes beat
+  0%
+    opacity: 0
+  50%
+    opacity: .7
+  100%
+    opacity: 0

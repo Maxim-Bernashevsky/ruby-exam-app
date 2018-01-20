@@ -1,0 +1,12 @@
+
+.center.jumbotron
+  %h1 App Experteese
+  %h2
+    =t(".app_ruby")
+
+    -#This is the home page for the
+    -#%a{:href => "http://www.railstutorial.org/"} Ruby on Rails
+  - if signed_in?
+    = link_to t(".expertise"), work_path, class: "btn btn-lg btn-white"
+  - else
+    = link_to t(".registration"), signup_path, class: "btn btn-lg btn-white"

@@ -1,0 +1,74 @@
+@import "../common/index"
+
+input[type=range]
+  -webkit-appearance: none
+  width: 100%
+  margin: 11px 0
+  &:focus
+    outline: none
+  &::-webkit-slider-runnable-track
+    width: 100%
+    min-width: 400px
+    height: 3px
+    cursor: pointer
+    background: $second
+    border-radius: 1px
+    border: 0.2px solid $gray-dark
+  &::-webkit-slider-thumb
+    border: 1px solid $gray-dark
+    // box-shadow: inset -1px -1px 1px $gray-dark, inset 0 1px 3px $black-light
+    height: 26px
+    width: 12px
+    border-radius: 1px
+    background: $black-normal
+    cursor: pointer
+    -webkit-appearance: none
+    margin-top: -11px
+    position: relative
+    z-index: 2
+.slider
+  .slider-value
+    text-align: center
+    position: relative
+    top: 10px
+
+  .wrap-range
+    position: relative
+    .right
+      position: absolute
+      top: 0
+      right: 0
+    .btn-white
+      float: right
+    #slider
+      position: relative
+      //&:before
+      //  @include pseudo()
+      //  background: linear-gradient(270deg, transparent, $black)
+      //  width: 200px
+      //  height: 8px
+      //  bottom: 0
+      //  left: 0
+      &:after
+        @include pseudo()
+        background: $black
+        width: 10px
+        height: 14px
+        bottom: 0
+        right: 0
+      .range-line
+        @include transition-on(.2)
+        opacity: .5
+        height: 0
+        width: 0
+        border-right: 200px solid $second
+        border-bottom: 5px solid $second
+        border-top: 5px solid transparent
+        border-left: 200px solid transparent
+        position: absolute
+        bottom: 3px
+        right: 0
+        z-index: -1
+        display: none
+
+

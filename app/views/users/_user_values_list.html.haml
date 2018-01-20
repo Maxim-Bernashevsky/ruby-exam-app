@@ -1,0 +1,31 @@
+.-{ title: t(".page_title")}
+
+  - if @composite_results.blank?
+    -#%table{ :style => "table-layout: auto; title: 'No Values results...';" }
+    %table
+      .results
+        %h3.label-page=  t(".no_values")
+    %br
+  - else
+    -#%table{ :style => "table-layout: auto; title: 'All images expert values';" }
+    %table
+      .results
+        %h3.label-page All images expert values
+      %tr
+        %th Image name
+        %th Image
+        %th My value
+        %th Average value
+        %th Date
+      %tr.tr-space
+      - @composite_results_paged.each do |composite_diag|
+        %tr.one_row
+          %td.image-name= composite_diag.name
+          %td.image= image_tag('/assets/pictures/' + composite_diag.file, {title: "Tested image"} )
+          %td.my-value= composite_diag.value
+          %td.average-value= composite_diag.ave_value
+          %td.date= composite_diag.created_at.strftime('%d.%m.%y ')
+
+      = paginate @composite_results_paged
+
+

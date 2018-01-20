@@ -1,0 +1,19 @@
+@import '../common/index'
+
+form
+  .form-control
+    color: $black
+    border: 1px double $black-light
+    box-shadow: 0 1px 4px $gray-dark
+    &:focus
+      border: 1px double $black-light
+      box-shadow: inset 0 1px 1px $black-light, 0 1px 6px $gray-normal
+  .label
+    padding-left: 0
+    color: $gray-normal
+    font-size: $fz-small
+    font-weight: normal
+    text-transform: uppercase
+    font-family: $ff-regular
+  input[type="submit"]
+    float: right

@@ -1,0 +1,24 @@
+- provide(:title, @user.name)
+-#%p#notice= notice
+.col-xs-12.col-md-12
+  %aside.profile_user
+    %h3
+      Profile
+    = gravatar_for @user
+    .field
+      .label= "User"
+      .info.long-word= @user.name
+    .field
+      .label= t('.email')
+      .info.long-word= @user.email
+    .field
+      .label.total_user_values= t('.total_user_values')
+      .info.long-word= @total_user_values
+    %br
+
+.col-xs-12.col-md-12
+  .user_value_list
+    = render 'users/user_values_list', locale: @current_locale
+    %br
+
+    = link_to t('.work'), work_path, class: "btn btn-white"

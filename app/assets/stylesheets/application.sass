@@ -1,0 +1,72 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require font-awesome
+ *= require_tree .
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Spectral:300,400,500,600,700,800&subset=cyrillic,latin)
+@import url(https://fonts.googleapis.com/css?family=Spectral+SC:200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic&subset=cyrillic,latin)
+
+@import "bootstrap-sprockets"
+@import "bootstrap"
+@import "common/index"
+
+
+body
+  font-family: $ff-regular
+  background-color: $black
+  color: $white
+  font-size: $fz-regular
+  line-height: 20px
+
+main
+  margin-bottom: 85px // fixed footer
+
+a
+  color: $second
+  @include transition-on(.145s)
+  &:hover
+    color: darken($second, 7)
+    text-decoration: none
+  &:visited
+    color: darken($second, 7)
+
+h1
+  font-family: $ff-condesed
+
+p, ol, ul, td
+  font-family: $ff-regular
+  font-size: $fz-regular
+  line-height: $lh-regular
+
+pre
+  background-color: $black-light
+  padding: 10px
+  font-size: $fz-small
+
+.long-word
+  width: 150px
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+.turbolinks-progress-bar
+  background-color: lighten($second, 20)
+
+div
+  &.field, &.actions
+    margin-bottom: 10px
+
+#notice
+  color: $second

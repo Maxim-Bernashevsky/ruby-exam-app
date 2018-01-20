@@ -1,0 +1,24 @@
+-# SLIDER
+.col-md-12
+  .slider
+    %h3= t(".make_decision")
+    .slider-value
+      %span Value
+      %span#chosen_value 50
+
+    .wrap-range
+      %p.left 5
+      #slider
+        %input#slide{:max => "100",
+                     :min => "5",
+                     :value => "50",
+                     :onchange => "updateSlider(this.value)",
+                     :step => "1",
+                     :type => "range"}
+        .range-line
+      %p.right 100
+
+      .button__results.save{:title => "Save image diag results"}
+        %a.btn.btn-white{"data-remote" => "true", :format => "js", :href => "#", :title => "Save image diag results"}
+          = t(".save_decision")
+

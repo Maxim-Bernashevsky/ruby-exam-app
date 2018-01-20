@@ -1,0 +1,197 @@
+// get data from controller		контроль в консоли
+var imageData = '<%= raw @image_data %>';
+console.log("IN display_theme: @image_data = " + imageData);
+var valuesQty = '<%= @image_data[:values_qty] %>';
+console.log("IN display_theme: valuesQty = " + valuesQty);
+const
+  total = $('.total'),
+  common = $('.common'),
+  imageUserValue = $('.image_user_value'),
+  arrow = $('.arrow'),
+  arrowRight = $('.img-right-side'),
+  arrowLeft = $('.img-left-side'),
+  slider = $('.slider'),
+  theme = $('.up-theme'),
+  selectTheme = $('.select_theme'),
+  filename = $('.up'),
+  imageValues = $('.image-values'),
+  img = $(".img-center img"),
+  buttonSave = $('.button__results.save')
+
+
+total.append().html(valuesQty);
+
+// show theme
+var selectedTheme = '<%= @image_data[:theme] %>';
+
+if (selectedTheme == "Выберите тему для оценки" || selectedTheme == "Select theme to leave your answer" || selectedTheme == "") {
+  arrow.hide();
+  slider.hide();
+} else {
+  arrow.show();
+  slider.show();
+}
+
+theme.append().html(selectedTheme);
+
+//restore button
+selectTheme.empty().html("<%= j render 'work/button_theme_select' -%>");
+
+// get data from controller
+var imageCurrentIndex = '<%= @image_data[:index] %>';
+//var firstThemeImagesName = JSON.parse(firstThemeImages)["name"];
+var oneImageName = '<%= @image_data[:name] %>';
+var oneImageFile = '<%= @image_data[:file] %>';
+console.log("3e IN display_theme: oneImageFile = " + oneImageFile);
+var oneImageId = '<%= @image_data[:image_id] %>';
+console.log("3f IN display_theme: oneImageId = " + oneImageId);
+var themeImagesSize = '<%= @image_data[:images_arr_size] %>';
+var selectedThemeId = '<%= @image_data[:theme_id] %>';
+
+
+// show name of image
+//var nameImage = selectedImage.slice(0,-4) ;  // put away . file .jpr
+filename.append().html('/ ' + oneImageName);
+imageValues.show();
+
+// show image
+var pathImage = "assets/pictures/" + oneImageFile;
+img.attr({src: pathImage});
+
+var userValuedImage = '<%= @image_data[:user_valued] %>';
+
+if (userValuedImage == 1) {
+  console.log("3c1 IN IF: userValuedImage == true? == " + userValuedImage);
+  var imageCommonValue = '<%= @image_data[:common_ave_value] %>';
+  console.log("3c2 IN IF: imageCommonValue = " + imageCommonValue);
+  common.append().html(imageCommonValue);
+
+  var imageValue = '<%= @image_data[:value] %>';
+  imageUserValue.append().html(imageValue);
+
+  imageValues.show();
+  slider.hide();
+} else {
+  imageValues.hide();
+  slider.show();
+}
+
+var currentUserId = '<%= @image_data[:current_user_id] %>';
+console.log("3d IN display_theme: currentUserId = " + currentUserId);
+
+theme.append().html(selectedTheme);
+
+//restore button
+selectTheme.empty().html("<%= j render 'work/button_theme_select' -%>");
+
+// AJAX call to next image list
+arrowRight.click(function (event) {
+  event.stopImmediatePropagation(); // would stop the event from bubbling to parent elements,
+
+  $.ajax({
+    type: "get",
+    url: "api/next_image",
+    data: {
+      index: imageCurrentIndex,
+      theme_id: selectedThemeId,
+      length: themeImagesSize
+    },
+    dataType: 'json'
+  }).done(clickArrowSuccess)
+    .fail(function (data_return) {
+      console.log("error: data_return = " + data_return);
+    });
+});
+
+// AJAX call to previous image list
+arrowLeft.click(function (event) {
+  event.stopImmediatePropagation(); // would stop the event from bubbling to parent elements,
+
+  $.ajax({
+    type: "get",
+    url: "api/prev_image",
+    data: {
+      index: imageCurrentIndex,
+      theme_id: selectedThemeId,
+      length: themeImagesSize
+    },
+    dataType: 'json'
+  }).done(clickArrowSuccess)
+    .fail(function (data_return) {
+      console.log("error: data_return = " + data_return);
+    });
+});
+
+function clickArrowSuccess(data_return) {
+  console.log("success1c:  " + data_return.notice);
+  imageCurrentIndex = data_return.new_image_index;
+  oneImageName = data_return.name;
+  oneImageFile = data_return.file;
+  oneImageId = data_return.image_id;
+  filename.append().html('/ ' + oneImageName);
+
+  var pathImage = "assets/pictures/" + oneImageFile;
+  img.attr({src: pathImage});
+
+  var userValuedFlag = data_return.user_valued;
+  if (userValuedFlag == 1) {
+    var imageValue = data_return.value;
+    imageUserValue.append().html(imageValue);
+
+    var imageCommonValue = data_return.common_ave_value;
+    common.append().html(imageCommonValue);
+
+    imageValues.show();
+    slider.hide();
+  } else {
+    imageValues.hide();
+    slider.show();
+  }
+}
+
+// AJAX call to save value
+buttonSave.unbind("click").click(function (event) {
+  console.log("clicked: button__results.save: ");
+  event.stopImmediatePropagation(); // would stop the event from bubbling to parent elements,
+
+  // !!!!!!!!!!!
+  var displayValue = $('#chosen_value')[0].innerHTML;
+  console.log("displayValue = " + displayValue);
+
+  $.ajax({
+    type: "get",
+    url: "api/save_value",
+    data: {
+      image_id: oneImageId,
+      theme_id: selectedThemeId,
+      value: displayValue
+    },
+    dataType: 'json'
+  }).done(function (data_return) {
+    console.log("success1c:  " + data_return.notice);
+    var userValuedFlag = data_return.user_valued;
+    if (userValuedFlag == 1) {
+      console.log("5 IN IF: userValuedFlag == true? == " + userValuedFlag);
+
+      var userImageValue = data_return.user_value;
+      imageUserValue.append().html(userImageValue);
+
+      var valuesQty = data_return.values_qty;
+      total.append().html(valuesQty);
+
+      var imageCommonValue = data_return.common_ave_value;
+      console.log("6 IN save_value: imageCommonValue = " + imageCommonValue);
+      common.append().html(imageCommonValue);
+
+      imageValues.show();
+      slider.hide();
+    } else {
+      console.log("7 IN ELSE: save_value userValuedImage == false? == " + userValuedFlag);
+      imageValues.hide();
+      imageValues.show();
+    }
+  })
+    .fail(function (data_return) {
+      console.log("error: data_return = " + data_return);
+    });
+});

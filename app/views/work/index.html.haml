@@ -1,0 +1,39 @@
+.col-md-8.col-xs-8
+  .select_theme
+    = render 'work/button_theme_select', locale: @current_locale
+.col-md-4.col-xs-4
+  .total-values
+    = t('.total_values')
+    %span.total{:title => "Total values", :data => {:value => @values_qty.round}} #{@values_qty.round}
+
+
+.image_display
+  .col-md-12.col-xs-12
+    .image-info
+      %a.up-theme{ :href => "results_list",  :title => "List all your diagnosys results"}
+        = @selected_theme
+      %span.up{:title => "Image file name"}
+
+  .img-block
+    .img-left-side.arrow
+      %span{:title => "list to previous image"}
+        %i.fa.fa-chevron-left.strong
+    .img-center
+      = image_tag('pictures/auto_parking.jpg')
+    .img-right-side.arrow
+      %span{:title => "list to next image"}
+        %i.fa.fa-chevron-right.strong
+        .row.diag
+
+    .image-values
+      .image-value
+        .image-value-title
+          %span Average value
+        .image_average_value.common{:title => "Average value"}
+      .image-value
+        .image-value-title
+          %span User value
+        .image_user_value{:title => "Expert value"}
+
+= render 'work/range_image_value'
+
