@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '=2.3.1'
+# ruby 2.3.1p112 (2016-04-26) [i386-linux-gnu]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 gem 'puma', '~> 3.7'

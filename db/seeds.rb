@@ -35,6 +35,7 @@ User.delete_all
 User.reset_pk_sequence
 User.create([
                  {name: '1', email: 'mail@gmail.com'},
+                 {name: 'test', email: 'test@gmail.com'},
                  {name: 'Maxim', email: '123@mail.ru', password: '123123'}
 ])
 
