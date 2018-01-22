@@ -1,0 +1,32 @@
+@import "../common/index"
+
+.loader
+  width: 100%
+  padding: 0
+  text-align: center
+  position: absolute
+  z-index: -1
+  top: calc(50% - 14px)
+  span
+    display: inline-block
+    width: 10px
+    height: 10px
+    margin: 0 4px
+    @include transition-on(.145s)
+    border-radius: 50%
+    animation: loading-c 1s linear infinite
+    background-color: $second
+    &:nth-child(2)
+      width: 14px
+      height: 14px
+      position: relative
+      top: 2px
+      animation: loading-c 1.5s linear infinite
+
+@keyframes loading-c
+  0%
+    opacity: 1
+  50%
+    opacity: .7
+  100%
+    opacity: 1
