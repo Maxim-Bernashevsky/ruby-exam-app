@@ -131,8 +131,11 @@ function clickArrowSuccess(data_return) {
   filename.append().html('/ ' + oneImageName);
 
   var pathImage = "/assets/pictures/" + oneImageFile;
-  img.fadeOut(250)
-  img.attr({src: pathImage}).fadeIn(250);
+  img.animate({ opacity: 0 }, 200, function() {
+    img.attr({ src: pathImage }).load(function() {
+      img.animate({ opacity: 1 }, 200)
+    })
+  });
 
   var userValuedFlag = data_return.user_valued;
   if (userValuedFlag == 1) {
