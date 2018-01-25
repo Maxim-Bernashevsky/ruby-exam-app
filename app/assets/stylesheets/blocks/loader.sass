@@ -9,19 +9,15 @@
   top: calc(50% - 14px)
   span
     display: inline-block
-    width: 10px
-    height: 10px
-    margin: 0 4px
+    width: 9px
+    height: 9px
+    margin: 0 2px
     @include transition-on(.145s)
     border-radius: 50%
-    animation: loading-c 1s linear infinite
+    animation: loading-c .7s linear infinite
     background-color: $second
     &:nth-child(2)
-      width: 14px
-      height: 14px
-      position: relative
-      top: 2px
-      animation: loading-c 1.5s linear infinite
+      animation: loading-c .9s linear infinite
 
 @keyframes loading-c
   0%
