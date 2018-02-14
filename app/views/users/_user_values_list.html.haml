@@ -4,19 +4,19 @@
     -#%table{ :style => "table-layout: auto; title: 'No Values results...';" }
     %table
       .results
-        %h3.label-page=  t(".no_values")
+        %h3.label-page=  t("common.no_values")
     %br
   - else
     -#%table{ :style => "table-layout: auto; title: 'All images expert values';" }
     %table
       .results
-        %h3.label-page All images expert values
+        %h3.label-page= t("common.result_list")
       %tr
-        %th Image name
-        %th Image
-        %th My value
-        %th Average value
-        %th Date
+        %th= t("common.image_name")
+        %th= t("common.image")
+        %th= t("common.my_value")
+        %th= t("common.average_value")
+        %th= t("common.date")
       %tr.tr-space
       - @composite_results_paged.each do |composite_diag|
         %tr.one_row

@@ -3,10 +3,14 @@
     %nav
       = link_to image_tag("pictures/logo4.svg", class: "rails_logo", alt: "Rails logo"), root_path
       %ul.nav.navbar-nav.pull-right
-        %li= link_to t('.home'), root_path
-        %li= link_to t('.help'), help_path
+        %li= link_to t('common.home'), root_path
+
+        - if I18n.locale == :ru
+          %li= link_to_unless_current "Eng", locale:"en"
+        - else
+          %li= link_to_unless_current "Рус", locale:"ru"
+
         - if signed_in?
-          -#= gravatar_for current_user
           %li#fat-menu.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               %p
@@ -14,10 +18,10 @@
                 #{current_user.name}
                 %b.caret
             %ul.dropdown-menu
-              %li= link_to t('.profile'), current_user
-              %li= link_to t('.settings'), '#'
+              %li= link_to t('common.profile'), current_user
+              %li= link_to t('common.settings'), '#'
               %li.divider
               %li
-                = link_to t('.sign_out'), signout_path, method: "delete"
+                = link_to t('common.sign_out'), signout_path, method: "delete"
         - else
-          %li= link_to t('.sign_in'), signin_path
+          %li= link_to t('common.sign_in'), signin_path

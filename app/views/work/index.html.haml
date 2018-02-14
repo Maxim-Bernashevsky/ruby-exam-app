@@ -3,38 +3,38 @@
     = render 'work/button_theme_select', locale: @current_locale
 .col-md-4.col-xs-4
   .total-values
-    = t('.total_values')
-    %span.total{:title => "Total values", :data => {:value => @values_qty.round}} #{@values_qty.round}
+    %span.add-text= t('common.total_values')+":"
+    %span.total{:data => {:value => @values_qty.round}} #{@values_qty.round}
 
 
 .image_display
   .col-md-12.col-xs-12
     .image-info
-      %a.up-theme{ :href => "results_list",  :title => "List all your diagnosys results"}
+      %a.up-theme{ :href => "results_list",  :title => t(".list_results")}
         = @selected_theme
-      %span.up{:title => "Image file name"}
+      %span.up{:title => t("common.image_name")}
 
   .img-block
     .img-left-side.arrow
-      %span{:title => "list to previous image"}
+      %span{:title => t(".prev")}
         %i.fa.fa-chevron-left.strong
     .img-center
       = image_tag('pictures/auto_parking.jpg')
       = render('work/loader')
     .img-right-side.arrow
-      %span{:title => "list to next image"}
+      %span{:title => t(".next")}
         %i.fa.fa-chevron-right.strong
         .row.diag
 
     .image-values
       .image-value
         .image-value-title
-          %span Average value
-        .image_average_value.common{:title => "Average value"}
+          %span =t("common.average_value")
+        .image_average_value.common{:title => t("common.average_value")}
       .image-value
         .image-value-title
-          %span User value
-        .image_user_value{:title => "Expert value"}
+          %span =t("common.my_value")
+        .image_user_value{:title => t("common.my_value")}
 
 = render 'work/range_image_value'
 

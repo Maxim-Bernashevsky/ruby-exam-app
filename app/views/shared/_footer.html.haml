@@ -5,7 +5,6 @@
       %span.h by Peach Lab Inc.
       =image_tag("pictures/h.png")
     %ul.nav.navbar-nav
-      %li
-        = link_to t('.about'), about_path
-      %li
-        = link_to t('.contacts'), contacts_path
+      %li= link_to t('common.about'), about_path
+      %li= link_to t('common.help'), help_path
+      %li= link_to t('common.contacts'), contacts_path

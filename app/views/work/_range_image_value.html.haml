@@ -3,7 +3,7 @@
   .slider
     %h3= t(".make_decision")
     .slider-value
-      %span Value
+      %span.add-text= t(".value")
       %span#chosen_value 50
 
     .wrap-range
@@ -18,7 +18,7 @@
         .range-line
       %p.right 100
 
-      .button__results.save{:title => "Save image diag results"}
-        %a.btn.btn-white{"data-remote" => "true", :format => "js", :href => "#", :title => "Save image diag results"}
+      .button__results.save
+        %a.btn.btn-white{"data-remote" => "true", :format => "js", :href => "#", :title => t(".button_save_title")}
           = t(".save_decision")
 

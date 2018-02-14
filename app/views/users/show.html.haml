@@ -3,16 +3,16 @@
 .col-xs-12.col-md-12
   %aside.profile_user
     %h3
-      Profile
+      = t("common.profile")
     = gravatar_for @user
     .field
-      .label= "User"
+      .label= t("common.user")
       .info.long-word= @user.name
     .field
-      .label= t('.email')
+      .label= t("common.email")
       .info.long-word= @user.email
     .field
-      .label.total_user_values= t('.total_user_values')
+      .label.total_user_values= t("common.total_values")
       .info.long-word= @total_user_values
     %br
 

@@ -1,0 +1,62 @@
+pl:
+  main:
+    index:
+      app_ruby: "Приложение на Ruby on Rails"
+      expertise: "123123123"
+      registration: "Регистрация"
+  users:
+      form:
+        name: "Name"
+        email: "E-mail"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        create_account: "Create my account"
+        user_total_values: "User total values"
+
+      new:
+        new_user_sign_up: "New user sign up"
+        back: "Back"
+
+      show:
+        work: "Proceed to work"
+        email: "Email"
+        total_user_values: "Total user values"
+      user_values_list:
+        page_title: ""
+  shared:
+    header:
+      home: "Главная"
+      profile: "Профиль"
+      settings: "Настройки"
+      sign_out: "Выход"
+      sign_in: "Войти"
+    footer:
+      about: "О нас"
+      help: "Помощь"
+      contacts: "Контакты"
+  sessions:
+    new:
+      email: "Email"
+      password: "Пароль"
+      sign_in: "Войти"
+      sign_up: "Регистрация"
+      new_user: "Новый пользователь"
+  work:
+    choose_theme_from_arr:
+      select_theme: "ВЫБОР ТЕМЫ"
+    button_theme_select:
+      select_theme_bt: "ВЫБОР ТЕМЫ"
+    button_list_results:
+      results_list: "Список результатов"
+    results_list:
+      page_title: ""
+      no_values: "Нет результатов"
+      select_theme: "Выбор темы"
+      return_to_expertise: "Вернуться к экспертизе"
+    range_image_value:
+      save_decision: "Сохранить значение"
+    index:
+      total_values: "Всего оценено:"
+      def_select_theme: "Select the theme"
+      make_decission: "Оценка"
+      save_decission: "Сохранить значение"

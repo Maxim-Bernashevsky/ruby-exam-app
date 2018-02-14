@@ -1,0 +1,64 @@
+ru:
+  common:
+    about: "О нас"
+    help: "Помощь"
+    contacts: "Контакты"
+    home: "Главная"
+    profile: "Профиль"
+    settings: "Настройки"
+    sign_out: "Выход"
+    sign_in: "Войти"
+    sign_up: "Регистрация"
+    save: "Сохранить"
+    user: "Пользователь"
+    email: "Email"
+    password: "Пароль"
+    total_values: "Всего оценок"
+    result_list: "Все оцененки изображений"
+    image_name: "Название изображения"
+    image: "Изображение"
+    average_value: "Среднее значение"
+    date: "Дата"
+    my_value: "Моя оценка"
+    no_values: "Нет результатов"
+    select_theme: "Выбор темы"
+    back: "Назад"
+  main:
+    index:
+      app_ruby: "Приложение на Ruby on Rails"
+      expertise: "Экспертиза"
+      registration: "Регистрация"
+  users:
+      form:
+        name: "Имя"
+        password_confirmation: "Подтверждение пароля"
+        create_account: "Продолжить"
+#        user_total_values: "User total values"
+      new:
+        new_user_sign_up: "New user sign up"
+        back: "Назад"
+      show:
+        work: "Продолжить"
+#        total_user_values: "Всего оценено"
+      user_values_list:
+        page_title: ""
+  sessions:
+    new:
+      new_user: "Новый пользователь"
+  work:
+    button_list_results:
+      results_list: "Список результатов"
+    results_list:
+      page_title: ""
+      return_to_expertise: "Вернуться к экспертизе"
+    range_image_value:
+      make_decision: "Произвести оценку"
+      save_decision: "Сохранить"
+      value: "Значение"
+      button_save_title: "Сохранить выбранное значение"
+    index:
+#      def_select_theme: "Select the theme"
+      save_decission: "Сохранить значение"
+      list_results: "Выбранная тема"
+      prev: "Предыдущее изображение"
+      next: "Следующее изображение"
