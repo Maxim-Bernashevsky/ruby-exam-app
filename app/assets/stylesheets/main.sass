@@ -6,8 +6,9 @@
   color: $white
   background-color: $black-normal
   text-align: center
-  margin-top: 25px
+  margin: 25px 0
   padding: 40px 60px
+  position: relative
   h1
     font-weight: 100
     font-size: 4em
@@ -16,4 +17,41 @@
     margin-top: 10px
     margin-bottom: 20px
     color: $gray-normal
+  .shadow-main
+    position: absolute
+    top: 1%
+    left: 1%
+    width: 97%
+    height: 95%
+    box-shadow: 0 0 40px $black-light
+    animation: shadow 18s linear infinite
+    z-index: -1
 
+@keyframes shadow
+  0%
+    top: 1%
+    left: 1%
+  12%
+    top: 4%
+    left: 2%
+  25%
+    top: 1%
+    left: 2%
+  37%
+    top: 4%
+    left: 1%
+  50%
+    top: 1%
+    left: 1%
+  62%
+    top: 4%
+    left: 1%
+  75%
+    top: 1%
+    left: 2%
+  87%
+    top: 4%
+    left: 2%
+  100%
+    top: 1%
+    left: 1%
